@@ -56,9 +56,8 @@ def print_indexes(my_list):
 
     """
 
-    list_of_cars = 0
-    for item in my_list:
-        print str(my_list.index(item)) + " " + item
+    for i in range(len(my_list)):
+        print "%s %s" % (i, my_list[i])
 
 
 def long_words(word_list):
@@ -72,9 +71,9 @@ def long_words(word_list):
 
     """
 
-    words_longer_than_4_characters = [word for word in word_list if len(word) > 4]
+    long_word_list = [word for word in word_list if len(word) > 4]
 
-    return words_longer_than_4_characters
+    return long_word_list
 
 
 def smallest_int(number_list):
@@ -97,7 +96,15 @@ def smallest_int(number_list):
 
     """
 
-    return 100
+    if len(number_list) > 0:
+        small_number = number_list[0]
+        for nums in number_list:
+            if small_number > nums:
+                small_number = nums
+        return small_number
+    else:
+        return None
+
 
 
 def largest_int(number_list):
@@ -118,7 +125,14 @@ def largest_int(number_list):
 
     """
 
-    return 0
+    if len(number_list) > 0:
+        large_number = number_list[0]
+        for nums in number_list:
+            if large_number < nums:
+                large_number = nums
+        return large_number
+    else:
+        return None
 
 
 def halvesies(number_list):
@@ -134,7 +148,9 @@ def halvesies(number_list):
 
     """
 
-    return []
+    nums_divided_by_two = [(numbers / 2.0) for numbers in number_list]
+
+    return nums_divided_by_two
 
 
 def word_lengths(word_list):
@@ -145,7 +161,8 @@ def word_lengths(word_list):
 
     """
 
-    return []
+    length_of_words = [len(words) for words in word_list]
+    return length_of_words
 
 
 def sum_numbers(number_list):
@@ -164,7 +181,11 @@ def sum_numbers(number_list):
 
     """
 
-    return None
+    adding_total = 0
+    for nums in number_list:
+        adding_total = adding_total + nums
+
+    return adding_total
 
 
 def mult_numbers(number_list):
@@ -186,7 +207,12 @@ def mult_numbers(number_list):
 
     """
 
-    return None
+    multiply_total = 1
+    for nums in number_list:
+        multiply_total = multiply_total * nums
+
+    return multiply_total
+
 
 
 def join_strings(word_list):
@@ -205,7 +231,11 @@ def join_strings(word_list):
 
     """
 
-    return "Not the right thing"
+    combine_words = ""
+    for word in word_list:
+        combine_words = combine_words + word
+
+    return combine_words
 
 
 def average(number_list):
@@ -218,7 +248,11 @@ def average(number_list):
     this raises an error when given an empty list.
     """
 
-    return 0
+    average_total = 0
+    for nums in number_list:
+        average_total = (average_total + nums) 
+
+    return float(average_total) / len(number_list)
 
 
 def join_strings_with_comma(list_of_words):
@@ -234,8 +268,18 @@ def join_strings_with_comma(list_of_words):
         'Pretzel'
 
     """
+    new_string = ""
+    comma_words = list_of_words[:-1]
+    last_word = list_of_words[-1]
 
-    return ""
+    if len(list_of_words) > 1:
+        for words in comma_words:
+            new_string = new_string + words + ", "
+        return new_string + last_word
+    else:
+        for word in list_of_words:
+            return word
+
 
 
 ##############################################################################
