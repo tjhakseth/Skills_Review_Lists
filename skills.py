@@ -56,7 +56,9 @@ def print_indexes(my_list):
 
     """
 
-    print "Nothing at all"
+    list_of_cars = 0
+    for item in my_list:
+        print str(my_list.index(item)) + " " + item
 
 
 def long_words(word_list):
@@ -70,7 +72,9 @@ def long_words(word_list):
 
     """
 
-    return ['the wrong thing']
+    words_longer_than_4_characters = [word for word in word_list if len(word) > 4]
+
+    return words_longer_than_4_characters
 
 
 def smallest_int(number_list):
